@@ -1,5 +1,5 @@
 require 'pry'
-require 'boardcase' # le Board va s'occuper de faire le lien entre les BoardCases et le Game
+require_relative 'boardcase' # le Board va s'occuper de faire le lien entre les BoardCases et le Game
 require 'game'
 
 # le board change les valeurs des BoardCases (de " " à "x" ou "o") et vérifie en fonction de
@@ -8,41 +8,12 @@ require 'game'
 
 class Board
 
-  attr_accessor :a1, :a2, :a3, :b1, :b2, :b3, :c1, :c2, :c3 # 9 cases du plateau
+  attr_accessor :boardcases
 
-  end
+	def initialize #à l'initialisation le plateau se dote d'un nb de colonne == nb de lignes via un nombre choisi élevé au carré
+		@boardcases = [BoardCase.new("A1"),BoardCase.new("B1"),BoardCase.new("C1"),BoardCase.new("A2"),BoardCase.new("B2"),BoardCase.new("C2"), BoardCase.new("A3"),BoardCase.new("B3"),BoardCase.new("C3")]
+	end
 
-  def initialize(instances_de_Board) # Quand la classe s'initialize, elle doit créer 9 instances BoardCases
-
-    @a1 = " " # Est une variable d'instance de la classe Board
-    @a2 = " "
-    @a3 = " "
-    @b1 = " "
-    @b2 = " "
-    @b3 = " "
-    @c1 = " "
-    @c2 = " "
-    @c3 = " "
-
-  end
-
-  # Ces instances sont rangées dans un array/hash qui est l'attr_accessor de la classe
-  def squares # les cases en tableau (array)
-    [@a1, @a2, @a3, @b1, @b2, @b3, @c1, @c2, @c3]
-
-  end
-
-    #the print_grid method draws a picture of the grid that holds the empty spaces from the squares array.
-    def print_grid
-      puts
-      puts "   1   2   3"
-      puts "A  #{@a1} | #{@a2} | #{@a3} "
-      puts "  ---|---|---"
-      puts "B  #{@b1} | #{@b2} | #{@b3} "
-      puts "  ---|---|---"
-      puts "C  #{@c1} | #{@c2} | #{@c3} "
-      puts
-      check_for_winner
 
     end
 
@@ -115,8 +86,6 @@ binding.pry
           exit
         end
       end
-
-    #2) change la BoardCase jouée en fonction de la valeur du joueur (X ou O)
 
     def check_for_winner # une méthode qui vérifie le plateau et indique s'il y a un vainqueur ou perdant ou arrêt du jeu
       win_combos.each do |combos|

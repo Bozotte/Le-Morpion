@@ -1,5 +1,4 @@
 require 'pry'
-require 'board'
 
 class Show # cette classe affiche l'état du plateau de jeu à un instant T.
 
@@ -9,10 +8,26 @@ class Show # cette classe affiche l'état du plateau de jeu à un instant T.
     puts "Pour quitter le jeu, tu dois taper sur q"
   end
 
+  def create_player
+    puts "Quel est ton prénom, Player 1 ?"
+    player1_name = gets.chomp.to_s
+    puts "Et toi Player 2, c'est quoi ton petit nom ? "
+    player2_name = gets.chomp.to_s
+
+    players = {player_1: player1_name, player_2: player2_name}
+
+    return players
+
+  end
+
+  def create_game
+    puts "La partie commence"
+  end
+
   def choice_player
     puts "Où souhaites tu jouer ?"
-    user_choice = gets.chomp
-    puts "user choice"
+    user_choice = gets.chomp.upcase
+
     return user_choice
   end
 
@@ -20,4 +35,4 @@ class Show # cette classe affiche l'état du plateau de jeu à un instant T.
     puts "Voici le board"
   end
 
-end # fin de classe show
+end
