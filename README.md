@@ -1,6 +1,6 @@
 # Le projet : Le Jeu du Morpion 
 
-8 comportements attendus du programme : 
+8 comportements attendus du programme : (en théorie)
 
 - Le jeu ne se joue qu'à deux joueurs
 - Le programme doit commencer en demandant le prénom de chaque joueur
@@ -11,9 +11,9 @@
 - À la fin d'une partie, le programme doit proposer de lancer une nouvelle partie 
 - Affichage du jeu dans le terminal (beau board, compteur de parties, couleurs, etc.).
 
+En pratique, c'est pas vraiment la même ;(
 
-
-
+Ca aurait été cool que l'appli marche en passant par app.rb, mais ça ne va pas être possible lààààààà !
 
 
 
